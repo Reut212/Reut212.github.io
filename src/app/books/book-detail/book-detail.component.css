@@ -1,0 +1,33 @@
+.wrapper{
+  height: 750px;
+}
+
+.scrollable-area{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.visible-on-small-screen{
+  display: none;
+}
+
+.book-detail-area{
+  margin-right: 20px;
+}
+
+@media (max-width: 450px) {
+  .wrapper{
+    margin-right: auto;
+    margin-top: unset;
+    height: fit-content;
+  }
+  .scrollable-area{
+    /* min-height: 460px; */
+    /* max-height: 600px; */
+    position: relative;
+  }
+
+  .visible-on-small-screen{
+    display: block;
+  }
+}

@@ -1,0 +1,14 @@
+.wrapper{
+  display: flex;
+}
+
+@media (max-width: 450px)  {
+  .wrapper {
+    flex-direction: column-reverse;
+  }
+}
+
+.alert-success{
+  height: fit-content;
+  width: fit-content;
+}

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-10">
+    <h2>Your Favorite Books</h2>
+    <hr>
+    <ul class="list-group">
+      <a
+      class="list-group-item"
+      style="cursor: pointer"
+      *ngFor="let bookDetail of bookDetails; let i=index"
+      (click)="onEditItem(i)"
+      >
+      {{ bookDetail.name }} ({{ bookDetail.authors }})
+    </a>
+    <app-library-edit></app-library-edit>
+    </ul>
+  </div>
+</div>

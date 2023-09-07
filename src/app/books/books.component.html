@@ -1,0 +1,16 @@
+
+<div *ngIf="isShowSuccessMsg" class="alert alert-success">
+  <strong>Success!</strong> Your book was submitted successfully.
+</div>
+<div *ngIf="isAddedToFavList" class="alert alert-success">
+  <strong>Success!</strong> Book is Added To Favorite List.
+</div>
+<div class="row wrapper">
+  <div class="col-md-5">
+    <app-book-list></app-book-list>
+  </div>
+  <div class="col-md-7">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

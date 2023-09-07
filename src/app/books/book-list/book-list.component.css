@@ -1,0 +1,10 @@
+.book-list{
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+@media (max-width: 450px) {
+  .book-list{
+    max-height: 400px;
+  }
+}

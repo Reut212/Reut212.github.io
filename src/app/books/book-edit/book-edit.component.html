@@ -1,0 +1,82 @@
+<div class="row wrapper">
+  <div class="col-xs-12">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control" placeholder="Add book title">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Authors</label>
+            <input type="text" id="authors" formControlName="authors" class="form-control" placeholder="Add book authors">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Publisher</label>
+            <input type="text" id="publisher" formControlName="publisher" class="form-control" placeholder="Add book publisher">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Catalog Number</label>
+            <input type="text" id="catalogNumber" formControlName="catalogNumber" class="form-control" required minlength="12">
+            <div *ngIf="bookForm.get('catalogNumber').hasError('catalogNumberExists')" class="text-danger">
+              Catalog number already exists.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Published Date</label>
+            <input  type="date" id="publishedDate" formControlName="publishedDate" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text" id="imagePath" formControlName="imagePath" class="form-control" placeholder="Add an image URL" #imagePath>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" formControlName="description" placeholder="Add a book description" class="form-control" rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="btn-toolbar">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!bookForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </form>
+  </div>
+</div>

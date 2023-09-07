@@ -1,0 +1,36 @@
+<div class="scrollable-area wrapper">
+  <div class="row">
+    <div class="col-xs-12">
+      <div *ngIf="isLoading" class="text-center">
+        <i class="fa fa-spinner fa-spin fa-3x"></i>
+        <h2>Loading...</h2>
+      </div>
+      <div class="book-detail-area" *ngIf="!isLoading">
+      <img
+        [src]="book.imageLinks?.thumbnail || book.imageLinks"
+        alt="{{ book.title }}"
+        class="img-responsive"
+        width="128" height="202">
+
+      <h1>{{ book.title }}</h1>
+      <div [innerHTML]="book.description"></div>
+      <br>
+      <p> <b>Authors:</b> {{book.authors}} </p>
+      <div
+      class="btn-group"
+      appDropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle">Manage book
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a (click)="onAddToLibraryList()" style="cursor: pointer;">To Library List</a></li>
+          <li><a style="cursor: pointer;" (click)="onEditBook()">Edit book</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteBook()">Delete book</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<hr class="visible-on-small-screen">
+

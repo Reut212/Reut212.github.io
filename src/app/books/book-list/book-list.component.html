@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewBook()">New Book</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <div>
+      <input
+      type="text"
+      placeholder="Search for books..."
+      [(ngModel)]="searchQuery"
+      (keyup)="searchBooks()"
+      />
+    </div>
+      <div>
+        <br>
+        <label for="sort">Sort by:&nbsp;</label>
+        <select id="sort" [(ngModel)]="sortOption" (change)="onSortOptionChange()">
+          <option value="author">Author</option>
+          <option value="publishedDate">Publication Date</option>
+          <option value="catalogNumber">Catalog Number</option>
+        </select>
+      </div>
+      <hr>
+      <!-- <pre>{{sortedBooks | json}}</pre> -->
+    <div class="book-list">
+      <div *ngFor="let book of sortedBooks" (click)="onBookClick(book.id)">
+        <h2>{{ book.title }}</h2>
+        <p>Authors: {{ book.authors }}</p>
+        <p>Publication Date: {{ book.publishedDate }}</p>
+        <p>Catalog Number: {{ book.id }}</p>
+        <img
+          *ngIf="book.imageLinks"
+          [src]="book.imageLinks.thumbnail || book.imageLinks"
+          width="128" height="202"
+          alt="{{ book.title }} cover"
+        />
+      <hr>
+      </div>
+    </div>
+  </div>
+</div>
